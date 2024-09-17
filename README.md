@@ -10,7 +10,7 @@ Parametric Resonance Oscilloscope is an interactive web application designed to 
 - **Responsive Design**: Optimized for various devices and screen sizes for a seamless user experience.
 - **Reset Functionality**: Easily revert to default simulation settings with a single click.
 
-[live simulation](#)
+[live simulation](https://github.com/NQevxvEtg/parametric-resonance-oscilloscope/blob/main/ui.gif)
 
 ## 📂 Installation
 
