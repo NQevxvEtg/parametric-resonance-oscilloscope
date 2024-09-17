@@ -1,0 +1,169 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+}
+
+.controls {
+    flex: 1 1 300px;
+    min-width: 300px;
+    max-width: 400px;
+    margin: 10px;
+}
+
+.oscilloscope-container {
+    flex: 1 1 600px;
+    min-width: 300px;
+    max-width: 800px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Needed for absolute positioning of labels */
+}
+
+.oscilloscope-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.y-axis-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-right: 10px;
+    color: white;
+}
+
+.x-axis-label {
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+canvas {
+    background-color: black;
+    border: 1px solid #444;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.control-group {
+    margin-bottom: 20px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.control-group input[type="range"] {
+    width: 100%;
+    /* Remove default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 4px;
+    background: #555; /* Uniform track color */
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove the blue highlight before the slider thumb for WebKit browsers */
+.control-group input[type="range"]::-webkit-slider-runnable-track {
+    background: #555;
+    border: none;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    margin-top: -4px; /* To center the thumb vertically */
+    border: 2px solid #999;
+}
+
+.control-group input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: #555;
+}
+
+.control-group input[type="range"]::-moz-range-track {
+    background: #555;
+    border: none;
+}
+
+.control-group input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    border: 2px solid #999;
+}
+
+.control-group input[type="range"]::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.control-group input[type="range"]::-ms-fill-lower {
+    background: #555;
+    border: none;
+}
+
+.control-group input[type="range"]::-ms-fill-upper {
+    background: #555;
+    border: none;
+}
+
+.control-group input[type="range"]::-ms-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    border: 2px solid #999;
+}
+
+.control-group input[type="range"]:focus::-ms-fill-lower {
+    background: #555;
+}
+
+.control-group input[type="range"]:focus::-ms-fill-upper {
+    background: #555;
+}
+
+.control-group span {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .controls, .oscilloscope-container {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}

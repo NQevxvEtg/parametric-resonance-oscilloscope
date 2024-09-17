@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parametric Resonance Oscilloscope</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Parametric Resonance Oscilloscope</h1>
+    <div class="container">
+        <div class="controls">
+            <h2>Input Parameters</h2>
+
+            <!-- Critical Percentage -->
+            <div class="control-group">
+                <label for="criticalPercentage">Critical Percentage (%):</label>
+                <input type="range" id="criticalPercentage" min="1" max="100" step="0.1">
+                <span id="criticalPercentageValue">45%</span>
+            </div>
+
+            <!-- Capacitance -->
+            <div class="control-group">
+                <label for="capacitance">Capacitance (C):</label>
+                <input type="range" id="capacitance" min="1e-9" max="1e-3" step="1e-9">
+                <span id="capacitanceValue">1 μF</span>
+            </div>
+
+            <!-- Inductance -->
+            <div class="control-group">
+                <label for="inductanceBase">Base Inductance (L<sub>0</sub>):</label>
+                <input type="range" id="inductanceBase" min="1e-6" max="1" step="1e-6">
+                <span id="inductanceBaseValue">200 mH</span>
+            </div>
+
+            <!-- Inductance Variation -->
+            <div class="control-group">
+                <label for="inductanceVariationPercent">Inductance Variation (% of L<sub>0</sub>):</label>
+                <input type="range" id="inductanceVariationPercent" min="0" max="100" step="0.1">
+                <span id="inductanceVariationPercentValue">25%</span>
+                <span id="inductanceVariationValue">Variation: 50 mH</span>
+            </div>
+
+            <!-- Modulation Frequency -->
+            <div class="control-group">
+                <label for="modulationFrequency">Modulation Frequency (f<sub>p</sub>):</label>
+                <input type="range" id="modulationFrequency" min="10" max="10000" step="1">
+                <span id="modulationFrequencyValue">711.76 Hz</span>
+            </div>
+
+            <!-- Resistance -->
+            <div class="control-group">
+                <label for="resistance">Resistance (R):</label>
+                <!-- Removed fixed max attribute -->
+                <input type="range" id="resistance" min="1" step="0.01">
+                <span id="resistanceValue">50.31 Ω</span>
+            </div>
+
+            <div class="control-group">
+                <button id="resetButton">Reset Simulation</button>
+            </div>
+        </div>
+
+        <div class="oscilloscope-container">
+            <div class="oscilloscope-wrapper">
+                <span class="y-axis-label">Power (W)</span>
+                <canvas id="oscilloscope"></canvas>
+            </div>
+            <span class="x-axis-label">Time (s)</span>
+        </div>
+    </div>
+
+    <!-- Include scripts at the end of the body -->
+    <script src="oscilloscope.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
