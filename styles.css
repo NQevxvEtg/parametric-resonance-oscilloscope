@@ -1,3 +1,5 @@
+/* styles.css */
+
 body {
     background-color: black;
     color: white;
@@ -33,19 +35,24 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative; /* Needed for absolute positioning of labels */
+    position: relative;
+    padding-left: 50px;  /* Space for left-side labels */
+    padding-right: 50px; /* Space for right-side labels */
 }
 
 .oscilloscope-wrapper {
     display: flex;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 
-.y-axis-label {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    margin-right: 10px;
+.y-axis-label-left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    transform-origin: center;
     color: white;
 }
 

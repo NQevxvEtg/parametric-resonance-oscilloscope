@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Define fixed limits
     const FIXED_LIMITS = {
-        inductanceBase: { min: 1e-6, max: 1, step: 1e-6 },
-        capacitance: { min: 1e-9, max: 1e-3, step: 1e-9 },
+        inductanceBase: { min: 0.000001, max: 1, step: 0.000001 },
+        capacitance: { min: 0.000000001, max: 0.001, step: 0.000000001 },
         modulationFrequency: { min: 10, max: 10000, step: 1 },
         inductanceVariationPercent: { min: 0, max: 100, step: 0.1 },
         criticalPercentage: { min: 1, max: 100, step: 0.1 },
@@ -190,17 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
         isUpdating = false;
     }
 
-    // Function to reset the simulation
-    function resetSimulation() {
-        cancelAnimationFrame(animationFrameId);
-        time = 0;
-        charge = 0.0001;
-        current = 0.001;
-        dataPoints = [];
-        timeData = [];
-        simulate();
-    }
-
     // Function to update the oscilloscope parameters
     function updateOscilloscopeParameters(params) {
         console.log('Calling updateOscilloscopeParameters with:', params);
@@ -282,5 +271,12 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateParameters();
 
         isUpdating = false;
+
+        // Reset oscilloscope simulation
+        if (typeof window.resetSimulation === 'function') {
+            window.resetSimulation();
+        } else {
+            console.error('resetSimulation function is not defined.');
+        }
     });
 });
